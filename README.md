@@ -36,6 +36,15 @@ cd ws/buildmonitor
 python3 main.py
 ```
 
+### Raspbian autostart
+
+Update the Pi user's `autostart` script:
+
+```sh
+cd /home/pi/ws/buildmonitor
+python3 main.py &
+```
+
 ## Misc
 
 ### Passwordless SSH
