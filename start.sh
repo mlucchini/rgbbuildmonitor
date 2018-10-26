@@ -1,3 +1,5 @@
+# This needs to be called by Raspbian autostart
+
 cd /home/pi/ws/buildmonitor
 
 printf "\n Installing dependencies for the build monitor"
