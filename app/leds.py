@@ -23,26 +23,26 @@ class RgbLed(threading.Thread):
         self.blinking = False
 
     def __color_output(self, rgb):
-      GPIO.output(self.red_pin, rgb[0])
-      GPIO.output(self.green_pin, rgb[1])
-      GPIO.output(self.blue_pin, rgb[2])
+        GPIO.output(self.red_pin, rgb[0])
+        GPIO.output(self.green_pin, rgb[1])
+        GPIO.output(self.blue_pin, rgb[2])
 
     def __pause(self):
-      time.sleep(1)
+        time.sleep(1)
 
     def run(self):
-      while(True):
-        self.__color_output(self.rgb)
-        self.__pause()
-        if self.blinking:
-          self.__color_output(RgbLed.rgb_off)
-          self.__pause()
+        while(True):
+            self.__color_output(self.rgb)
+            self.__pause()
+            if self.blinking:
+                self.__color_output(RgbLed.rgb_off)
+                self.__pause()
 
     def color(self, rgb):
-      self.rgb = rgb
+        self.rgb = rgb
 
     def blink(self, blinking):
-      self.blinking = blinking
+        self.blinking = blinking
 
 
 class StatusLed():
@@ -64,7 +64,7 @@ class StatusLed():
 class StatusLeds():
     def __init__(self):
         self.leds = {}
-        with open("config.yml", 'r') as f:
+        with open('config.yml', 'r') as f:
             cfg = yaml.load(f)
             for name, pins in cfg['leds'].items():
                 self.leds[name] = StatusLed(pins)

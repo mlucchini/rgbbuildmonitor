@@ -7,15 +7,15 @@ from app.status import Status
 
 
 class BitriseMonitor(threading.Thread):
-    def __init__(self, callback):
+    def __init__(self, callbacks):
         super(BitriseMonitor, self).__init__()
-        with open("config.yml", 'r') as f:
+        with open('config.yml', 'r') as f:
             cfg = yaml.load(f)
             self.token = cfg['bitrise']['token']
             self.build_urls = cfg['bitrise']['build_urls']
             self.delay = cfg['bitrise']['delay']
         self.daemon = True
-        self.callback = callback
+        self.callbacks = callbacks
     
     def _get_build_json(self, url):
         req = urllib.request.Request(url=url)
@@ -33,11 +33,15 @@ class BitriseMonitor(threading.Thread):
         )
 
     def update(self):
-        statuses = [self._get_build_status(build_url) for build_url in self.build_urls]
-        return statuses
+        try:
+            statuses = [self._get_build_status(build_url) for build_url in self.build_urls]
+            for callback in self.callbacks:
+                callback(statuses)
+        except RuntimeError as e:
+            print('An error occurred while monitoring Bitrise...')
+            print(e)
     
     def run(self):
         while(True):
-            statuses = self.update()
-            self.callback(statuses)
+            self.update()
             time.sleep(self.delay)
