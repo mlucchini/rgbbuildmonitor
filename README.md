@@ -3,6 +3,8 @@
 Supports Bamboo builds and deployments and Bitrise workflows. Copy `config.yml.template`
 to `config.yml` and fill in username, password, token as appropriate.
 
+![Scheme](https://bitbucket.org/coreshowservices/reedexpo.digital.rgbbuildmonitor/raw/bde99e197d6cae66f58c976685abd86b51407ee7/docs/colourbox.jpg)
+
 ## Install dependencies
 
 ### MacOSX
