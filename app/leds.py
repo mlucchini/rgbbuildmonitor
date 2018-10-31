@@ -32,11 +32,15 @@ class RgbLed(threading.Thread):
 
     def run(self):
         while(True):
-            self.__color_output(self.rgb)
-            self.__pause()
-            if self.blinking:
-                self.__color_output(RgbLed.rgb_off)
+            try:
+                self.__color_output(self.rgb)
                 self.__pause()
+                if self.blinking:
+                    self.__color_output(RgbLed.rgb_off)
+                    self.__pause()
+            except RuntimeError as e:
+                print('An error occurred with the LEDs...')
+                print(e)
 
     def color(self, rgb):
         self.rgb = rgb
