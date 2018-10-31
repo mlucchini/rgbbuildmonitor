@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := copy
 
 .user    := pi
-.machine := raspberrypi.local
+.machine := 192.168.69.67
 .dir     := ws/buildmonitor
 
 help:
