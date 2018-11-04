@@ -2,16 +2,13 @@ bamboo:
   username: myusername
   password: mypassword
   build_urls:
-    - https://atlassian.rxweb-prd.com/builds/rest/api/latest/result/CSS-CON
-    - https://atlassian.rxweb-prd.com/builds/rest/api/latest/deploy/dashboard/130646019
-    - https://atlassian.rxweb-prd.com/builds/rest/api/latest/result/CSS-CONI
-    - https://atlassian.rxweb-prd.com/builds/rest/api/latest/result/CSS-CONL
+    - https://<bamboo-server-url>/builds/rest/api/latest/result/<build-plan-key>
+    - https://<bamboo-server-url>/builds/rest/api/latest/deploy/dashboard/<deployment-project-id>
   delay: 20
 bitrise:
   token: mytoken
   build_urls:
-    - https://api.bitrise.io/v0.1/apps/ccf335d23f330a49/builds
-    - https://api.bitrise.io/v0.1/apps/de573cc443fb5b26/builds
+    - https://api.bitrise.io/v0.1/apps/<slug-id>/builds
   delay: 20
 leds:
   myname:
