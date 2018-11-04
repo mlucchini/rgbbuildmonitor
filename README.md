@@ -3,7 +3,7 @@
 Supports Bamboo builds and deployments and Bitrise workflows. Copy `config.yml.template`
 to `config.yml` and fill in username, password, token as appropriate.
 
-![Scheme](https://bitbucket.org/coreshowservices/reedexpo.digital.rgbbuildmonitor/raw/bde99e197d6cae66f58c976685abd86b51407ee7/docs/colourbox.jpg)
+![Scheme](https://raw.githubusercontent.com/mlucchini/rgbbuildmonitor/master/docs/colourbox.jpg)
 
 ## Install dependencies
 
@@ -44,7 +44,7 @@ Update the Pi user's `autostart` script:
 
 ```sh
 cd /home/pi/ws/buildmonitor
-python3 main.py &
+start.sh
 ```
 
 ## Misc
